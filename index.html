@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nails Studio | Arte & Estilo en tus Manos</title>
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        :root {
+            --rosa-suave: #fbeee6;
+            --rosa-principal: #e8a598;
+            --rosa-oscuro: #c87d6f;
+            --negro-elegante: #2c2c2c;
+            --gris-claro: #f9f9f9;
+            --blanco: #ffffff;
+        }
+
+        body {
+            color: var(--negro-elegante);
+            background-color: var(--blanco);
+            line-height: 1.6;
+        }
+
+        /* HEADER / NAVEGACIÓN */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: var(--blanco);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--rosa-oscuro);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--negro-elegante);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--rosa-oscuro);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1200') center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--blanco);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            max-width: 600px;
+        }
+
+        .btn-principal {
+            background-color: var(--rosa-principal);
+            color: var(--blanco);
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-principal:hover {
+            background-color: var(--rosa-oscuro);
+            transform: translateY(-2px);
+        }
+
+        /* SECCIONES COMUNES */
+        section {
+            padding: 80px 8%;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .titulo-seccion h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--rosa-oscuro);
+        }
+
+        .titulo-seccion p {
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* SERVICIOS */
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .tarjeta-servicio {
+            background: var(--gris-claro);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .tarjeta-servicio:hover {
+            transform: translateY(-5px);
+        }
+
+        .tarjeta-servicio h3 {
+            margin-bottom: 15px;
+            color: var(--negro-elegante);
+        }
+
+        .precio {
+            font-size: 1.4rem;
+            color: var(--rosa-oscuro);
+            font-weight: 700;
+            margin-top: 15px;
+        }
+
+        /* GALERÍA / MODELOS DE UÑAS */
+        .galeria {
+            background-color: var(--rosa-suave);
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .item-galeria {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: var(--blanco);
+        }
+
+        .item-galeria img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s;
+        }
+
+        .item-galeria:hover img {
+            transform: scale(1.05);
+        }
+
+        .info-modelo {
+            padding: 18px;
+            text-align: center;
+        }
+
+        .info-modelo h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .info-modelo p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* BOTÓN FLOTANTE WHATSAPP */
+        .btn-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--negro-elegante);
+            color: var(--blanco);
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            nav ul {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <header>
+        <div class="logo">Beauty Nails</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#galeria">Modelos</a></li>
+                <li><a href="#contacto">Citas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- INICIO / HERO -->
+    <section id="inicio" class="hero">
+        <h1>Diseños Únicos para Tus Uñas</h1>
+        <p>Especialista en manicura rusa, acrílico y Nail Art personalizado.</p>
+        <a href="#contacto" class="btn-principal">Agendar Cita Ahora</a>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+        <div class="titulo-seccion">
+            <h2>Nuestros Servicios</h2>
+            <p>Cuidado profesional para resaltar tus manos</p>
+        </div>
+        <div class="servicios-grid">
+            <div class="tarjeta-servicio">
+                <h3>Manicura Semipermanente</h3>
+                <p>Esmaltado de larga duración con limpieza profunda de cutículas y acabado brillante.</p>
+                <div class="precio">Desde $15</div>
+            </div>
+            <div class="tarjeta-servicio">
+                <h3>Uñas Acrílicas / Gel</h3>
+                <p>Extensión de uñas con técnica profesional, moldeado perfecto y resistencia superior.</p>
+                <div class="precio">Desde $25</div>
+            </div>
+            <div class="tarjeta-servicio">
+                <h3>Nail Art Personalizado</h3>
+                <p>Diseños hechos a mano alzada, encapsulados, efecto mármol y pedrería fina.</p>
+                <div class="precio">Desde $5 (extra)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA DE MODELOS -->
+    <section id="galeria" class="galeria">
+        <div class="titulo-seccion">
+            <h2>Catálogo de Modelos</h2>
+            <p>Elige tu estilo favorito para tu próxima cita</p>
+        </div>
+        <div class="galeria-grid">
+            
+            <div class="item-galeria">
+                <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=600" alt="Mármol Elegante">
+                <div class="info-modelo">
+                    <h4>Minimalista & Mármol</h4>
+                    <p>Tonos nude con vetas doradas y acabado mate.</p>
+                </div>
+            </div>
+
+            <div class="item-galeria">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=600" alt="Nail Art Creativo">
+                <div class="info-modelo">
+                    <h4>Geométrico & Color</h4>
+                    <p>Diseño moderno con trazos finos y tonos pastel.</p>
+                </div>
+            </div>
+
+            <div class="item-galeria">
+                <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=600" alt="Estilo Floral">
+                <div class="info-modelo">
+                    <h4>Flores de Temporada</h4>
+                    <p>Detalles florales delicados pintados a mano.</p>
+                </div>
+            </div>
+
+            <div class="item-galeria">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600" alt="Glamour Acrílico">
+                <div class="info-modelo">
+                    <h4>Glamour & Pedrería</h4>
+                    <p>Efecto desvanecido (ombre) con destellos de brillo.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/593991605438?text=Hola,%20quisiera%20agendar%20una%20cita%20para%20u%C3%B1as" class="btn-whatsapp" target="_blank">
+        💬 Agendar por WhatsApp
+    </a>
+
+    <!-- FOOTER -->
+    <footer id="contacto">
+        <p>&copy; 2026 Beauty Nails Studio. Todos los derechos reservados.</p>
+        <p>Síguenos en Instagram: @beautynails_studio</p>
+    </footer>
+
+</body>
+</html>
